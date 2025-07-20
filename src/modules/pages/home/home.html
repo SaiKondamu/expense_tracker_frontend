@@ -1,0 +1,34 @@
+<template>
+
+    <components-navbar></components-navbar>
+    <div class="slds-p-around_medium wrapper">
+        <lightning-layout multiple-rows>
+            <lightning-layout-item padding="around-medium" size="12" small-device-size="12" medium-device-size="12" large-device-size="12">
+                <lightning-card title="Expenses" icon-name="standard:expense">
+                    <components-expensedatatable 
+                        data={expenses}
+                        onshow={showHandler}
+                        onedit={editHandler}
+                        ondelete={deleteHandler}></components-expensedatatable>
+                </lightning-card>
+            </lightning-layout-item>
+            <lightning-layout-item padding="around-medium" size="12" small-device-size="12" medium-device-size="4" large-device-size="4">
+               <lightning-card title="Expense By Categories">
+                    <components-doughnutchart></components-doughnutchart>
+                </lightning-card>
+            </lightning-layout-item>
+            <lightning-layout-item padding="around-medium" size="12" small-device-size="12" medium-device-size="8" large-device-size="8">
+               <lightning-card title="Expense By Categories Table View">
+                    
+                </lightning-card>
+            </lightning-layout-item>
+        </lightning-layout>
+
+
+
+
+
+ 
+        
+    </div>
+</template>

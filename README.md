@@ -68,3 +68,5 @@ yarn start
 ```
 
 Open the site at [http://localhost:3000](http://localhost:3000)
+
+To Spin up a mock server - "npx json-server --watch db.json --port 3004"

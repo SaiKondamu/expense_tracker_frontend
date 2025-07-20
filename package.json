@@ -15,6 +15,9 @@
     "stage:prod-compat": "yarn build:prod-compat && yarn start"
   },
   "dependencies": {
+    "chart.js": "^4.5.0",
+    "json-server": "^1.0.0-beta.3",
+    "lightning-base-components": "^1.27.2-alpha",
     "lwc": "latest",
     "lwr": "0.18.3"
   },

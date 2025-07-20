@@ -1,10 +1,23 @@
 {
-    "lwc": { "modules": [{ "dir": "$rootDir/src/modules" }] },
+    "lwc": { "modules": [{ "dir": "$rootDir/src/modules" }, {"npm": "lightning-base-components"}] },
     "routes": [
         {
-            "id": "example",
+            "id": "home",
             "path": "/",
-            "rootComponent": "example/app"
+            "rootComponent": "pages/home",
+            "layoutTemplate": "$layoutsDir/index.html",
+            "bootstrap":{
+                "syntheticShadow": true
+            }
+        },
+        {
+            "id": "login",
+            "path": "/login",
+            "rootComponent": "pages/login",
+            "layoutTemplate": "$layoutsDir/index.html",
+            "bootstrap":{
+                "syntheticShadow": true
+            }
         }
     ],
     "assets": [
