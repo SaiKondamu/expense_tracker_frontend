@@ -1,6 +1,6 @@
 import { LightningElement, api} from 'lwc' ;
 
-const SERVER_URL = 'http://localhost:3002';
+const SERVER_URL =  'https://expense-tracker-backend-2qoi.onrender.com' || 'http://localhost:3002';
 export default class Login extends LightningElement {
     
     get loginUrl() {

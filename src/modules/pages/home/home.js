@@ -1,7 +1,7 @@
 import { LightningElement, api, track} from 'lwc' ;
 
 const SERVER_URL = 'http://localhost:3004';
-const BACKEND_URL = 'http://localhost:3002';
+const BACKEND_URL = 'https://expense-tracker-backend-2qoi.onrender.com' || 'http://localhost:3002';
 
 export default class Home extends LightningElement {
     
@@ -19,7 +19,7 @@ export default class Home extends LightningElement {
     get showchartData() {
         return this.chartData && Object.keys(this.chartData).length > 0;
     }
-    
+
     async connectedCallback() {
         try{
             const user = await this.getLoggedInUser();
