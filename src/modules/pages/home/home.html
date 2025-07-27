@@ -1,6 +1,8 @@
 <template>
-
-    <components-navbar></components-navbar>
+    <template if:true={showSpinner}>
+        <components-loader></components-loader>
+    </template>
+    <components-navbar logged-in-user={loggedInUser}></components-navbar>
     <div class="slds-p-around_medium wrapper">
         <lightning-layout multiple-rows>
             <lightning-layout-item padding="around-medium" size="12" small-device-size="12" medium-device-size="12" large-device-size="12">
@@ -14,7 +16,9 @@
             </lightning-layout-item>
             <lightning-layout-item padding="around-medium" size="12" small-device-size="12" medium-device-size="4" large-device-size="4">
                <lightning-card title="Expense By Categories">
-                    <components-doughnutchart></components-doughnutchart>
+                    <template if:true={showchartData}>
+                        <components-doughnutchart chart-records={chartData}></components-doughnutchart>
+                    </template>
                 </lightning-card>
             </lightning-layout-item>
             <lightning-layout-item padding="around-medium" size="12" small-device-size="12" medium-device-size="8" large-device-size="8">
@@ -23,12 +27,5 @@
                 </lightning-card>
             </lightning-layout-item>
         </lightning-layout>
-
-
-
-
-
- 
-        
     </div>
 </template>

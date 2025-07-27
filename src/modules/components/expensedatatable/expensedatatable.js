@@ -25,6 +25,7 @@ export default class Expensedatatable extends LightningElement {
 
     @api 
     set data(rows){
+        console.log(`Setting data in expensedatatable: ${JSON.stringify(rows)}`);
         this._data = [...rows];
     }
 

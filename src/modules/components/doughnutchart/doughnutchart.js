@@ -6,9 +6,34 @@ export default class Doughnutchart extends LightningElement {
     
     @api title = 'Nav bar';
     @api description = 'Welcome to the Expense Tracker application. Here you can manage your expenses efficiently.';
+
+    _data = [];
+    _labels = [];
     
     chart;
+    
     chartLoaded = false;
+
+    @api 
+    get chartRecords(){
+        return this._data
+    }   
+    set chartRecords(records){
+        console.log(`Setting data in doughnutchart`);
+        console.log(`Records: ${JSON.stringify(records)}`);
+        this._data = [...records.results];
+        this._labels = [...records.labels];
+        if(this.chartLoaded) {
+            const elem = this.template.querySelector('.chart');
+            elem.innerHTML = ''; // Clear previous chart
+            this.chart.destroy();
+            this.chartLoaded = false;
+            this.renderChart();
+        }
+        console.log(`Data set in doughnutchart: ${JSON.stringify(this._data)}`);
+        console.log(`Labels set in doughnutchart: ${JSON.stringify(this._labels)}`);
+        //this.renderChart();
+    }          
 
     connectedCallback() {
         console.log('Login component connected');
@@ -29,19 +54,10 @@ export default class Doughnutchart extends LightningElement {
         const config = {
             type : 'doughnut',
             data : {
-                labels: [
-                    'Red',
-                    'Blue',
-                    'Yellow'
-                ],
+                labels: this._labels,
                 datasets: [{
                     label: 'My First Dataset',
-                    data: [300, 50, 100],
-                    backgroundColor: [
-                    'rgb(255, 99, 132)',
-                    'rgb(54, 162, 235)',
-                    'rgb(255, 205, 86)'
-                    ],
+                    data: this._data,
                     hoverOffset: 4
                 }]
             }
